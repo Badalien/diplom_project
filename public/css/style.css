@@ -1,0 +1,133 @@
+.body {
+    font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.news-date {
+    padding-top: 10px;
+    padding-right: 20px;
+    height: 80px;
+    vertical-align: initial;
+}
+
+.dateonimg {
+    width: 64px;
+    height: 39px;
+    text-align: center;
+    background-color: #2bd106;
+}
+
+span.pdate {
+    font-size: 33px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+span.pmonth {
+    display: block;
+    font-size: 14px;
+    background-color: #e7e7e7;
+    color: #575757;
+    padding: 2px 4px;
+}
+
+.entry-title {
+    font-size: 22px;
+    line-height: 32px;
+    text-align: left;
+    margin: 0;
+}
+
+.entry-title a {
+    color: #3D3D38;
+}
+
+.entry-title a:hover {
+    text-decoration: none;
+    color: #070409;
+}
+
+.entry-summary {
+    padding-top: 10px;
+}
+
+
+
+
+.menu.navbar-nav {
+    text-transform: uppercase;
+    float: right;
+}
+
+.nav-item.padding-right {
+    padding-right: 10px;
+}
+
+
+
+
+.td-width h3 {
+    font-size: 18px;
+}
+
+.cbp_tmlabel h2 {
+    font-size: 17px;
+}
+
+
+
+
+
+
+
+
+.table_s {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    padding: 0;
+}
+
+.table_s th.first {
+    width: 10%;
+}
+
+.table_s th {
+    font-weight: 400;
+    width: 12%;
+    text-align: center;
+    vertical-align: middle !important;
+    padding: 0;
+    border-right: 2px solid white;
+    background: #366092;
+    color: white;
+}
+
+.table_s td {
+    font-weight: 400;
+    width: 12%;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid black;
+    border-right: 2px solid white;
+    background: #ddd;
+}
+
+.table_s td.padding {
+    padding: 7px 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.footer-style {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.footer-border {
+    padding-top: 30px;
+    border-top: 1px solid rgba(0,0,0,.075) !important;
+}
