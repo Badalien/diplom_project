@@ -31,27 +31,28 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         // schedules
-        Route::group(['prefix' => 'schedules'], function () {//todo
+        Route::group(['prefix' => 'schedules'], function () {
             Route::get('/', 'SchedulesController@show')->name('schedules');
             Route::get('/edit', 'SchedulesController@edit');
             Route::post('/save', 'SchedulesController@save');
         });
 
         // portfolio
-        Route::group(['prefix' => 'portfolio'], function () {//todo
+        Route::group(['prefix' => 'portfolio'], function () {
             Route::get('/', 'PortfolioController@show')->name('portfolio');
-            Route::put('/{id}', 'PortfolioController@save');
+            Route::get('/edit', 'PortfolioController@edit');
+            Route::post('/save', 'PortfolioController@save');
         });
 
         // contacts
-        Route::group(['prefix' => 'contacts'], function () {//todo
+        Route::group(['prefix' => 'contacts'], function () {
             Route::get('/', 'ContactsController@show')->name('contacts');
             Route::get('/edit', 'ContactsController@edit');
             Route::post('/save', 'ContactsController@save');
         });
 
         // group
-        Route::group(['prefix' => 'groups'], function () {//todo
+        Route::group(['prefix' => 'groups'], function () {
             Route::get('/', 'GroupController@show');
             Route::get('/create', 'GroupController@add');
             Route::post('/', 'GroupController@create');
@@ -59,21 +60,21 @@ Route::group(['middleware' => ['web']], function () {
         });
 
         // methodical material
-        Route::group(['prefix' => 'materials'], function () {//todo
+        Route::group(['prefix' => 'materials'], function () {
             Route::get('/', 'MethodicalMaterialController@show')->name('materials');
-            Route::get('/create', 'MethodicalMaterialController@add');
-            Route::post('/', 'MethodicalMaterialController@create');
-            Route::get('/{id}', 'MethodicalMaterialController@detail');
-            Route::put('/{id}', 'MethodicalMaterialController@save');
+            Route::get('/add', 'MethodicalMaterialController@add');
+            Route::post('/save', 'MethodicalMaterialController@save');
+            Route::get('/{id}', 'MethodicalMaterialController@download');
         });
 
         // tasks
-        Route::group(['prefix' => 'tasks'], function () {//todo
-            Route::get('/', 'TasksController@show');
-            Route::get('/create', 'TasksController@add');
-            Route::post('/', 'TasksController@create');
-            Route::get('/{id}', 'TasksController@detail');
-            Route::put('/{id}', 'TasksController@save');
+        Route::group(['prefix' => 'tasks'], function () {
+            Route::get('/', 'TaskController@show')->name('tasks');
+            Route::get('/add', 'TaskController@add');
+            Route::get('/estimate/{id}', 'TaskController@estimate');
+            Route::post('/estimate/{id}', 'TaskController@saveEstimate');
+            Route::post('/{id}', 'TaskController@save');
+            Route::get('/{id}', 'TaskController@download');
         });
     });
 });
