@@ -86,6 +86,21 @@
                                     <a class="dropdown-item" href="{{ route('profile') }}">
                                         {{ __('Профиль') }}
                                     </a>
+                                    @if (Auth::user() && Auth::user()->role === \App\Models\User::ADMIN_ROLE)
+                                        <a class="dropdown-item" href="{{ route('students') }}">
+                                            {{ __('Список студентов') }}
+                                        </a>
+                                    @endif
+                                    @if (Auth::user() && Auth::user()->role === \App\Models\User::ADMIN_ROLE)
+                                        <a class="dropdown-item" href="{{ route('subjects') }}">
+                                            {{ __('Предметы') }}
+                                        </a>
+                                    @endif
+                                    @if (Auth::user() && Auth::user()->role === \App\Models\User::ADMIN_ROLE)
+                                        <a class="dropdown-item" href="{{ route('groups') }}">
+                                            {{ __('Группы') }}
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('tasks') }}">
                                         {{ __('Задания на проверку') }}
                                     </a>

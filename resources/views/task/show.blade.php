@@ -36,6 +36,11 @@
                                                 <a href="/tasks/estimate/{{ $task['info']->id }}" >оценить</a>
                                             @endif
                                         </small><br>
+                                        @if($task['info']->description_estimate)
+                                            <small class="hex">
+                                                <b>Комментарий к оценке:</b> {{ $task['info']->description_estimate }}
+                                            </small><br>
+                                        @endif
                                         <small class="hex">Создано {{ $task['info']->created_at }}</small>
                                     </td>
                                 </tr>

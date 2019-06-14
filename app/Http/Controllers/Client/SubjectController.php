@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Groups;
+use App\Models\Subjects;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
-class GroupController extends Controller
+class SubjectController extends Controller
 {
     /**
      * @return \Illuminate\Http\Response
      */
     public function show()
     {
-        $groups = Groups::all();
+        $subjects = Subjects::all();
 
-        return view('groups.show', [
-            'groups' => $groups,
+        return view('subjects.show', [
+            'subjects' => $subjects,
         ]);
     }
 
@@ -29,7 +29,7 @@ class GroupController extends Controller
      */
     public function add()
     {
-        return view('groups.create');
+        return view('subjects.create');
     }
 
     /**
@@ -49,12 +49,12 @@ class GroupController extends Controller
             return redirect()->back()->withErrors($validate->errors());
         }
 
-        Groups::create([
-            'name' => $request->name ?? 'group_name',
+        Subjects::create([
+            'name' => $request->name ?? 'subject_name',
             'description' => $request->description ?? '',
             'user_id' => $user->id
         ]);
 
-        return redirect('/groups');
+        return redirect('/subjects');
     }
 }

@@ -19,10 +19,12 @@ class ContactsController extends Controller
     public function show()
     {
         $address = SiteConfigs::where(['type' => 'address'])->first();
+        $email = SiteConfigs::where(['type' => 'email'])->first();
         $phone = SiteConfigs::where(['type' => 'phone'])->first();
 
         return view('contacts.show', [
             'address' => $address->value ?? 'не указан',
+            'email' => $email->value ?? 'не указан',
             'phone' => $phone->value ?? 'не указан',
         ]);
     }
@@ -33,10 +35,12 @@ class ContactsController extends Controller
     public function edit()
     {
         $address = SiteConfigs::where(['type' => 'address'])->first();
+        $email = SiteConfigs::where(['type' => 'email'])->first();
         $phone = SiteConfigs::where(['type' => 'phone'])->first();
 
         return view('contacts.edit', [
             'address' => $address->value ?? '',
+            'email' => $email->value ?? '',
             'phone' => $phone->value ?? '',
         ]);
     }
@@ -50,25 +54,18 @@ class ContactsController extends Controller
         if (!$user || $user->role != User::ADMIN_ROLE) {
             return redirect()->back()->withException(new AccessDeniedException());
         }
-        $address = SiteConfigs::where(['type' => 'address'])->first();
-        if ($address) {
-            $address->value = $request['address'] ?? '';
-            $address->save();
-        } else {
-            SiteConfigs::create([
-                'type' => 'address',
-                'value' => $request['address'] ?? ''
-            ]);
-        }
-        $phone = SiteConfigs::where(['type' => 'phone'])->first();
-        if ($phone) {
-            $phone->value = $request['phone'] ?? '';
-            $phone->save();
-        } else {
-            SiteConfigs::create([
-                'type' => 'phone',
-                'value' => $request['phone'] ?? ''
-            ]);
+        $elements = ['address', 'phone', 'email'];
+        foreach ($elements as $element) {
+            $record = SiteConfigs::where(['type' => $element])->first();
+            if ($record) {
+                $record->value = $request[$element] ?? '';
+                $record->save();
+            } else {
+                SiteConfigs::create([
+                    'type' => $element,
+                    'value' => $request[$element] ?? ''
+                ]);
+            }
         }
 
         return redirect('/contacts');

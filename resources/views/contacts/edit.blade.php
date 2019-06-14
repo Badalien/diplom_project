@@ -22,6 +22,10 @@
                                 <input type="text" name="address" id="address" class="form-control" value="{{ $address }}" required placeholder="Введите адресс">
                             </div>
                             <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="text" name="email" id="email" class="form-control" value="{{ $email }}" required placeholder="Введите E-mail">
+                            </div>
+                            <div class="form-group">
                                 <label for="phone">Контактный телефон</label>
                                 <input type="text" name="phone" id="phone" class="form-control" value="{{ $phone }}" required placeholder="Введите телефон">
                             </div>

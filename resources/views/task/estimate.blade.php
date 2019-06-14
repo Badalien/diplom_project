@@ -33,7 +33,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="estimate">Итоговая оценка</label>
-                                <input type="text" name="estimate" id="estimate" class="form-control" required placeholder="Введите оценку">
+                                <input type="number" step="0.01" max="99.99" name="estimate" id="estimate" class="form-control" required placeholder="Введите оценку">
+                            </div>
+                            <div class="form-group">
+                                <label for="description_estimate">Комментарий к оценке</label>
+                                <input type="input" name="description_estimate" id="description_estimate" class="form-control" placeholder="Введите комментарий к оценке">
                             </div>
                             <hr>
                             {{ csrf_field() }}

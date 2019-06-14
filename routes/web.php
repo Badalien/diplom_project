@@ -51,14 +51,6 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('/save', 'ContactsController@save');
         });
 
-        // group
-        Route::group(['prefix' => 'groups'], function () {
-            Route::get('/', 'GroupController@show');
-            Route::get('/create', 'GroupController@add');
-            Route::post('/', 'GroupController@create');
-            Route::put('/{id}', 'GroupController@save');
-        });
-
         // methodical material
         Route::group(['prefix' => 'materials'], function () {
             Route::get('/', 'MethodicalMaterialController@show')->name('materials');
@@ -75,6 +67,25 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('/estimate/{id}', 'TaskController@saveEstimate');
             Route::post('/{id}', 'TaskController@save');
             Route::get('/{id}', 'TaskController@download');
+        });
+
+        // subjects
+        Route::group(['prefix' => 'subjects'], function () {
+            Route::get('/', 'SubjectController@show')->name('subjects');
+            Route::get('/add', 'SubjectController@add');
+            Route::post('/save', 'SubjectController@save');
+        });
+
+        // group
+        Route::group(['prefix' => 'groups'], function () {
+            Route::get('/', 'GroupController@show')->name('groups');
+            Route::get('/add', 'GroupController@add');
+            Route::post('/save', 'GroupController@save');
+        });
+
+        // students
+        Route::group(['prefix' => 'students'], function () {
+            Route::get('/', 'StudentController@show')->name('students');
         });
     });
 });

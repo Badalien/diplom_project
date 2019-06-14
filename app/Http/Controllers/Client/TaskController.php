@@ -117,9 +117,8 @@ class TaskController extends Controller
      */
     public function saveEstimate(Request $request, int $task_id)
     {
-        $user = Auth::user();
         $validate = Validator::make($request->input(), [
-            'estimate' => ['required', 'string', 'min:1', 'max:255']
+            'estimate' => ['required', 'min:0', 'max:99.99']
         ]);
 
         if ($validate->fails()) {
@@ -127,6 +126,7 @@ class TaskController extends Controller
         }
         $task = Tasks::find($task_id);
         $task->estimate = $request->estimate ?? 0;
+        $task->description_estimate = $request->description_estimate ?? '';
         $task->save();
 
         return redirect('/tasks');

@@ -25,6 +25,7 @@
 
                         <div class="form-group">
                             <label>Адрес: </label> {{ $address }}<br>
+                            <label>E-mail: </label> {{ $email }}<br>
                             <label>Контактный телефон: </label> {{ $phone }}<br>
                         </div>
 
