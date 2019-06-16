@@ -18,9 +18,15 @@ class StudentController extends Controller
     public function show()
     {
         $students = User::where(['role' => 'student'])->get();
+        $groups = Groups::all();
+        $result_groups = [];
+        foreach ($groups as $group) {
+            $result_groups[$group->id] = $group->name;
+        }
 
         return view('students.show', [
             'students' => $students,
+            'groups' => $result_groups
         ]);
     }
 }

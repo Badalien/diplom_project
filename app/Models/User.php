@@ -13,5 +13,5 @@ class User extends Authenticatable
         self::STUDENT_ROLE
     ];
 
-    protected $fillable = array('name', 'patronymic', 'second_name', 'password', 'email');
+    protected $fillable = array('name', 'patronymic', 'second_name', 'password', 'email', 'group_id');
 }

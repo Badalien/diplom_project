@@ -54,6 +54,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="group_id" class="col-md-4 col-form-label text-md-right">{{ __('Группа') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="group_id" type="text" class="form-control @error('group_id') is-invalid @enderror" required name="group_id">
+                                    @foreach($groups as $group)
+                                        <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('group_id')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail адресс') }}</label>
 
                             <div class="col-md-6">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Groups;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -22,6 +23,20 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $groups = Groups::all();
+
+        return view('auth.register', [
+            'groups' => $groups
+        ]);
+    }
 
     /**
      * Where to redirect users after registration.
@@ -50,6 +65,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'group_id' => ['required'],
             'second_name' => ['string', 'max:255'],
             'patronymic' => ['string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -72,6 +88,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role' => User::STUDENT_ROLE,
+            'group_id' => $data['group_id'],
         ]);
     }
 }
