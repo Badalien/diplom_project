@@ -36,7 +36,10 @@
                             @foreach($subjects as $subject)
                                 <tr>
                                     <th scope="row">{{ $subject->id }}</th>
-                                    <td>{{ $subject->name }}</td>
+                                    <td>
+                                        {{ $subject->name }}
+                                        <small>(<a href="/subjects/delete/{{ $subject->id }}">удалить</a>)</small>
+                                    </td>
                                     <td>{{ $subject->description }}</td>
                                     <td>{{ $subject->created_at }}</td>
                                 </tr>

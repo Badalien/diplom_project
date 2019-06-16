@@ -36,7 +36,10 @@
                             @foreach($groups as $group)
                                 <tr>
                                     <th scope="row">{{ $group->id }}</th>
-                                    <td>{{ $group->name }}</td>
+                                    <td>
+                                        {{ $group->name }}
+                                        <small>(<a href="/groups/delete/{{ $group->id }}">удалить</a>)</small>
+                                    </td>
                                     <td>{{ $group->description }}</td>
                                     <td>{{ $group->created_at }}</td>
                                 </tr>

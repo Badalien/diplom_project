@@ -11,7 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //todo не забыть добавить семки и описать запуск в readme
-        // $this->call(UsersTableSeeder::class);
+         $this->call(CreateAdmin::class);
     }
 }

@@ -57,4 +57,20 @@ class SubjectController extends Controller
 
         return redirect('/subjects');
     }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(int $id)
+    {
+        $user = Auth::user();
+        if (!$user || $user->role != User::ADMIN_ROLE) {
+            return redirect()->back()->withException(new AccessDeniedException());
+        }
+
+        $subject = Subjects::find($id);
+        $subject->forceDelete();
+
+        return redirect('/subjects');
+    }
 }

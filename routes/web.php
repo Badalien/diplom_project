@@ -74,6 +74,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/', 'SubjectController@show')->name('subjects');
             Route::get('/add', 'SubjectController@add');
             Route::post('/save', 'SubjectController@save');
+            Route::get('/delete/{id}', 'SubjectController@delete');
         });
 
         // group
@@ -81,6 +82,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/', 'GroupController@show')->name('groups');
             Route::get('/add', 'GroupController@add');
             Route::post('/save', 'GroupController@save');
+            Route::get('/delete/{id}', 'GroupController@delete');
         });
 
         // students
