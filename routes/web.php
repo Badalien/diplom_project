@@ -55,7 +55,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['prefix' => 'materials'], function () {
             Route::get('/', 'MethodicalMaterialController@show')->name('materials');
             Route::get('/add', 'MethodicalMaterialController@add');
+            Route::get('/folders/add', 'MethodicalMaterialController@addFolder');
             Route::post('/save', 'MethodicalMaterialController@save');
+            Route::post('/folders/save', 'MethodicalMaterialController@saveFolder');
             Route::get('/{id}', 'MethodicalMaterialController@download');
         });
 

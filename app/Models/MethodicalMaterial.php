@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class MethodicalMaterial extends Model
 {
-    protected $fillable = array('file_path', 'name', 'description', 'user_id');
+    protected $fillable = array('file_path', 'name', 'description', 'user_id', 'group_id', 'path_id');
 }
